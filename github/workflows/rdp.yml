@@ -1,4 +1,4 @@
-name: Windows RDP GitHub Action
+name: Windows RDP
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
 
       - name: Enable RDP
         run: |
-          net user runneradmin "Password123!" /add
+          net user runneradmin Password123! /add
           net localgroup administrators runneradmin /add
           reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
           Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
