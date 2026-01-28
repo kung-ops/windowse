@@ -1,0 +1,20 @@
+name: Windows VPS Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows-job:
+    runs-on: self-hosted
+
+    steps:
+      - name: Test runner
+        run: echo Runner is working!
+
+      - name: Show PC info
+        run: systeminfo
+
+      - name: Keep VPS alive (24+ hours)
+        run: |
+          echo VPS running...
+          timeout /t 999999
